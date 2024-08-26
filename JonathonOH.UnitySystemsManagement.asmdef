@@ -1,0 +1,17 @@
+{
+    "name": "JonathonOH.UnitySystemsManagement",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f6df8bfa19d81824a9410f16328a6af9",
+        "GUID:5d63a4af76352234b902783ec9618c94"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
