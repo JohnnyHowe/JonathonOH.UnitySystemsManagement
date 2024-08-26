@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace JonathonOH.UnityTools.SystemsManagement
@@ -15,6 +16,7 @@ namespace JonathonOH.UnityTools.SystemsManagement
         private const string systemPrefabName = "Systems";
         private static T instance;
         public static T Instance { get => GetInstance(); }
+        public static List<GameObject> gameSystems;
 
         private static T GetInstance()
         {
@@ -36,6 +38,7 @@ namespace JonathonOH.UnityTools.SystemsManagement
         private static void CreateSystems()
         {
             if (DoesSystemObjectExist()) return;
+            gameSystems = new List<GameObject>();
 
             GameObject systems = Instantiate(GetSystemPrefab());
             systems.name = systemPrefabName;
@@ -48,7 +51,14 @@ namespace JonathonOH.UnityTools.SystemsManagement
                 if (system.IsInstantiated()) continue;
 
                 system.OnInstantiation();
-                if (!system.IsInstantiated()) Debug.LogError($"Could not start {system} GameSystem!");
+                if (system.IsInstantiated())
+                {
+                    gameSystems.Add(child.gameObject);
+                }
+                else
+                {
+                    Debug.LogError($"Could not start {system} GameSystem!");
+                }
             }
         }
 
@@ -77,12 +87,16 @@ namespace JonathonOH.UnityTools.SystemsManagement
 
         protected virtual void AwakeSystem() { }
 
-        /// <summary>
-        /// Empty method. Just a point to wake the system up without other side effects.
-        /// </summary>
-        public static void PromptLoad()
+        public static void PromptLoad() { CreateSystems(); }
+
+        public static T Get()
         {
-            CreateSystems();
+            PromptLoad();
+            foreach (GameObject systemObject in gameSystems)
+            {
+                if (systemObject.TryGetComponent(out T system)) return system;
+            }
+            throw new KeyNotFoundException($"Could not find a system of type ${typeof(T)}");
         }
     }
 }

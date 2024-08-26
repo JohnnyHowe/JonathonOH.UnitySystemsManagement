@@ -33,9 +33,7 @@ Systems
 Just like any other Singleton
 
 ```
-using JonathonOH.SystemsManagement;
-
-public class ThingIWantToAccessEverywhere: GameSystem
+public class ThingIWantToAccessEverywhere: GameSystem<ThingIWantToAccessEverywhere>
 {
     public void DoAThing()
     {
@@ -49,3 +47,25 @@ Now you can call it anywhere
 
 ```
 ThingIWantToAccessEverywhere.Instance.DoAThing();
+```
+## Using With Interfaces
+Due to how I've written the code, this should be a slower. It's up to you to pick your poison.
+```
+public interface HandyInterface
+{
+    public void DoAThing();
+}
+```
+```
+public class ThingIWantToAccessEverywhere: GameSystem<ThingIWantToAccessEverywhere>, HandyInterface
+{
+    public void DoAThing()
+    {
+        ...
+    }
+}
+```
+And access it with
+```
+GameSystem<HandyInterface>.GetInstance().DoAThing();
+```
