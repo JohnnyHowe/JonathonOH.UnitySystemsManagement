@@ -1,10 +1,7 @@
 {
-    "name": "JonathonOH.UnitySystemsManagement",
+    "name": "com.jonathonoh.unity.systemsmanagement",
     "rootNamespace": "",
-    "references": [
-        "GUID:f6df8bfa19d81824a9410f16328a6af9",
-        "GUID:5d63a4af76352234b902783ec9618c94"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

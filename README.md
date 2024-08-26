@@ -10,7 +10,13 @@ Using a prefab instead of having a separate initialization scene (like many othe
 We also don't have to open the init scene in editor to edit the singletons.
 
 # How To Use
-## 1. Create Systems prefab
+## 1. Install Package
+In Unity 
+1. Go to the Package Manager 
+2. Click the little plus in the top left and "Add Package From git URL ..."
+3. Paste `https://github.com/JohnnyHowe/JonathonOH.UnitySystemsManagement.git` and click add.
+
+## 2. Create Systems prefab
 This prefab must be in the root of a resources folder and called "Systems". This is where you'll put all of your system components.
 
 I'd recommend putting them on child objects to keep it tidy. 
@@ -23,7 +29,7 @@ Systems
  |- SystemD
 ```
 
-## 2. Create a System
+## 3. Create a System
 Just like any other Singleton
 
 ```
@@ -38,7 +44,7 @@ public class ThingIWantToAccessEverywhere: GameSystem
 }
 ```
 
-## 3. Done
+## 4. Done
 Now you can call it anywhere
 
 ```
