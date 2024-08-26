@@ -14,7 +14,7 @@ We also don't have to open the init scene in editor to edit the singletons.
 In Unity 
 1. Go to the Package Manager 
 2. Click the little plus in the top left and "Add Package From git URL ..."
-3. Paste `https://github.com/JohnnyHowe/JonathonOH.UnitySystemsManagement.git` and click add.
+3. Paste `https://github.com/JohnnyHowe/com.jonathonoh.unity.systemsmanagement.git` and click add.
 
 ## 2. Create Systems prefab
 This prefab must be in the root of a resources folder and called "Systems". This is where you'll put all of your system components.

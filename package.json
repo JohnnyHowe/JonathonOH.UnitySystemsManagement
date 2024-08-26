@@ -1,4 +1,6 @@
 {
+    "displayName": "Systems Management",
     "name": "com.jonathonoh.unity.systemsmanagement",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "description": "A Singleton implementation for Unity"
 }
