@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace JonathonOH.UnitySystemsManagement
+namespace JonathonOH.UnityTools.SystemsManagement
 {
     public interface IGameSystem
     {
